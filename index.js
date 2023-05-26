@@ -1,7 +1,9 @@
+//Import files
 const inquirer = require('inquirer');
 const fs = require('fs');
 const {Circle, Square, Triangle} = require('./lib/shapes');
 
+//Inquirer questions array
 const questions = [
     {
         type: 'list',
@@ -25,6 +27,7 @@ const questions = [
     },
 ];
 
+//creates shape from shape.js file using the users input
 function shapeChoice(shape, shapeColor) {
     let logoShape;
     if (shape === 'Circle') {
@@ -41,12 +44,14 @@ function shapeChoice(shape, shapeColor) {
     return logoShape.render();
 };
 
+//SVG code to generate logo using the users input
 function generateLogo(userInput) {
     return `<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg"> ${shapeChoice(userInput.shape, userInput.shapeColor)}
     <text x="150" y="125" font-size="80" text-anchor="middle" fill="${userInput.textColor}">${userInput.text}</text></svg>`
     
 };
 
+//Creates the SVG file
 function saveFile(file, userInput){
     const fileData = generateLogo(userInput);
     // const filePath = `${__dirname}/${file}`;
@@ -59,6 +64,7 @@ function saveFile(file, userInput){
 });
 }
 
+//Start the logo generator process using inquirer.prompt
 function startLogoGenerator() {
     inquirer.prompt(questions)
     .then((answers) => {
@@ -71,5 +77,5 @@ function startLogoGenerator() {
     });
 
 };
-
+//Call startLogoGenerator function to begin
 startLogoGenerator();
