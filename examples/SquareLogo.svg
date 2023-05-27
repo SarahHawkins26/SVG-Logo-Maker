@@ -1,2 +1,2 @@
-<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg"> <rect x="40" y="10" width="200" height="200" fill="Red"/>
-    <text x="150" y="125" font-size="80" text-anchor="middle" fill="#FF04F7">HOT</text></svg>
+<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg"> <rect x="50" y="0" width="200" height="200" fill="#79BE6A"/>
+    <text x="150" y="125" font-size="80" text-anchor="middle" fill="#748970">DAY</text></svg>
