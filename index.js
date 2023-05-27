@@ -6,24 +6,25 @@ const {Circle, Square, Triangle} = require('./lib/shapes');
 //Inquirer questions array
 const questions = [
     {
+        type: 'input',
+        name: 'text',
+        message: 'TEXT: What (3) characters would you like your logo to display?',
+    },
+    {
+        type: 'input',
+        name: 'textColor',
+        message: 'TEXT COLOR: What color would you like your text to be?',
+    },
+    {
         type: 'list',
         name: 'shape',
         choices: ['Circle', 'Square', 'Triangle'],
-        message: 'What shape would you like your logo to be?',
+        message: 'SHAPE CHOICE: What shape would you like your logo to be?',
     },
     {
         type: 'input',
         name: 'shapeColor',
-        message: 'What color would you like your logo to be?',
-    },
-    {
-        type: 'input',
-        name: 'text',
-        message: 'What (3) characters would you like your logo to display?',
-    },{
-        type: 'input',
-        name: 'textColor',
-        message: 'What color would you like your text to be?',
+        message: 'SHAPE COLOR: What color would you like your logo to be?',
     },
 ];
 
@@ -54,12 +55,11 @@ function generateLogo(userInput) {
 //Creates the SVG file
 function saveFile(file, userInput){
     const fileData = generateLogo(userInput);
-    // const filePath = `${__dirname}/${file}`;
     fs.writeFile(file, fileData, (error) => {
         if (error) {
             console.log(error);
         } else {
-            console.log(`Generated ${file}`);
+            console.log(`Generated logo.svg`);
         }
 });
 }
